@@ -1,0 +1,18 @@
+extends layout
+
+block content
+
+  h1 Liquid: #{liquid.name}
+
+  div(style='margin-left:20px;margin-top:20px')
+
+    h3
+    p #[strong Description:] #{liquid.description}
+    p #[strong Price:] #{liquid.price}
+    p #[strong Number In Stock:] #{liquid.number_in_stock}
+
+  hr
+  p
+    a(href=liquid.url+'/delete') Delete Liquid
+  p
+    a(href=liquid.url+'/update') Update Liquid

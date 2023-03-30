@@ -1,0 +1,19 @@
+extends layout
+
+block content
+
+  h1 Fruit: #{fruit.name}
+
+  div(style='margin-left:20px;margin-top:20px')
+
+    h3
+    p #[strong Description:] #{fruit.description}
+    p #[strong Price:] #{fruit.price}
+    p #[strong Number In Stock:] #{fruit.number_in_stock}
+
+  hr
+  p
+    a(href=fruit.url+'/delete') Delete Fruit
+  p
+    a(href=fruit.url+'/update') Update Fruit
+

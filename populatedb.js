@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 
-console.log('This script populates some test items to your database. Specified database as argument - e. node populatedb "mongodb+srv://cooluser:coolpassword@cluster0.lz91hw2.mongodb.net/local_library?retryWrites=true&w=majority"');
+console.log('This script populates some test items to your database. Specified database as argument - e. node populatedb "mongodb+srv://cooluser:coolpassword@cluster0.ybaz7vs.mongodb.net/inventory_app?retryWrites=true&w=majority"');
 
 // Get arguments passed on command line
 const userArgs = process.argv.slice(2);
@@ -28,15 +28,15 @@ const solids = []
 const spices = []
 
 function fruitCreate(name, description, price, number_in_stock, cb) {
-    fruitdetail = { 
+    fruitdetail = {
       name: name,
       description: description,
       price: price,
       number_in_stock: number_in_stock,
     }
-  
+
   const fruit = new Fruit(fruitdetail);
-       
+
   fruit.save(function (err) {
     if (err) {
       cb(err, null)
@@ -49,14 +49,14 @@ function fruitCreate(name, description, price, number_in_stock, cb) {
 }
 
 function liquidCreate(name, description, price, number_in_stock, cb) {
-   liquiddetail = { 
+   liquiddetail = {
     name: name,
     description: description,
     price: price,
     number_in_stock: number_in_stock,
    }
-  const liquid = new Liquid( liquiddetail );
-       
+  const liquid = new Liquid(liquiddetail);
+
   liquid.save(function (err) {
     if (err) {
       cb(err, null);
@@ -69,14 +69,14 @@ function liquidCreate(name, description, price, number_in_stock, cb) {
 }
 
 function solidCreate(name, description, price, number_in_stock, cb) {
-  soliddetail = { 
+  soliddetail = {
     name: name,
     description: description,
     price: price,
     number_in_stock: number_in_stock,
   }
-    
-  const solid = new Solid(soliddetail);    
+
+  const solid = new Solid(soliddetail);
   solid.save(function (err) {
     if (err) {
       cb(err, null)
@@ -90,14 +90,14 @@ function solidCreate(name, description, price, number_in_stock, cb) {
 
 
 function spiceCreate(name, description, price, number_in_stock, cb) {
-  spicedetail = { 
+  spicedetail = {
     name: name,
     description: description,
     price: price,
     number_in_stock: number_in_stock,
-  }    
-    
-  const spice = new Spice(spicedetail);    
+  }
+
+  const spice = new Spice(spicedetail);
   spice.save(function (err) {
     if (err) {
       console.log('Spice: ' + spice);
@@ -114,16 +114,16 @@ function spiceCreate(name, description, price, number_in_stock, cb) {
 function createFruits(cb) {
     async.series([
         function(callback) {
-          fruitCreate('Apple', 'A dozen or 10kg only', 1.00, '25', callback);
+          fruitCreate('Apple', 'A dozen or 10kg only.', 1.00, '25', callback);
         },
         function(callback) {
-          fruitCreate('Orange', 'A dozen or 10kg only', 1.00, '25', callback);
+          fruitCreate('Orange', 'A dozen or 10kg only.', 1.00, '25', callback);
         },
         function(callback) {
-          fruitCreate('Mango', 'A dozen or 10kg only', 1.00, '25', callback);
+          fruitCreate('Mango', 'A dozen or 10kg only.', 1.00, '25', callback);
         },
         function(callback) {
-          fruitCreate('Cherry', 'A dozen or 10kg only', 1.00, '25', callback);
+          fruitCreate('Cherry', 'A dozen or 10kg only.', 1.00, '25', callback);
         },
         ],
         // optional callback
@@ -134,13 +134,13 @@ function createFruits(cb) {
 function createLiquids(cb) {
     async.parallel([
         function(callback) {
-          liquidCreate('Water', 'In bottles of 75cl, 150cl or 5 litres. Free as in Free Speech', 0.00, 'Always available.', callback);
+          liquidCreate('Water', 'In bottles of 75cl, 150cl or 5 litres. Free as in Free Speech.', 0.00, 'Always available.', callback);
         },
         function(callback) {
           liquidCreate("Lemonade", 'Home-made from fresh lemon and sugar, consume after opening. Comes in 50cl and 100cl bottles.', 2.00/4.00, '50cl - 25. 100cl - 15.', callback);
         },
         function(callback) {
-          liquidCreate("Dry gin", 'Distilled alcohol. Best served chilled', 2.00, '25', callback);
+          liquidCreate("Dry gin", 'Distilled alcohol. Best served chilled.', 2.00, '25', callback);
         },
         function(callback) {
           liquidCreate('Fruit Chapman. Berry Blast', 'Home-made from wild berries. Available in a 100cl bottle.', 5.00, '30', callback)
@@ -154,7 +154,7 @@ function createLiquids(cb) {
 function createSolids(cb) {
     async.parallel([
         function(callback) {
-          solidCreate('Eggs', 'Poultry eggs. Available in crates of 30 eggs', 10.00, '50 crates', callback)
+          solidCreate('Eggs', 'Poultry eggs. Available in crates of 30 eggs.', 10.00, '50 crates', callback)
         },
         function(callback) {
           solidCreate('Rice', 'Parboiled rice. Avalable in bags of 5kg.', 15.00, '40 bags', callback)
@@ -174,7 +174,7 @@ function createSolids(cb) {
 function createSpices(cb) {
   async.parallel([
       function(callback) {
-        spiceCreate('Curry and Thyme mixture', 'A blend of curry powder and thyme leaves. In sachets of 20 grams', 2.00, '50 sachets', callback)
+        spiceCreate('Curry and Thyme mixture', 'A blend of curry powder and thyme leaves. In sachets of 20 grams.', 2.00, '50 sachets', callback)
       },
       function(callback) {
         spiceCreate('Ginger.', 'Dry Ginger. In packs of 5.', 1, '100 packs', callback)
@@ -203,7 +203,7 @@ function(err, results) {
     }
     else {
         console.log('All done');
-        
+
     }
     // All done, disconnect from database
     mongoose.connection.close();

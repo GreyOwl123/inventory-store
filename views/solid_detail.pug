@@ -1,0 +1,18 @@
+extends layout
+
+block content
+
+  h1 Solid: #{solid.name}
+
+  div(style='margin-left:20px;margin-top:20px')
+
+    h3
+    p #[strong Description:] #{solid.description}
+    p #[strong Price:] #{solid.price}
+    p #[strong Number In Stock:] #{solid.number_in_stock}
+
+  hr
+  p
+    a(href=solid.url+'/delete') Delete Solid
+  p
+    a(href=solid.url+'/update') Update Solid

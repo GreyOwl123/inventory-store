@@ -12,8 +12,9 @@ const LiquidSchema = new Schema({
 
 //Virtual for liquid's URL
 LiquidSchema.virtual("url").get(function () {
-  return `catalog/fruit/${this._id}`;
+  return `catalog/liquid/${this._id}`;
 });
 
 // Compile model from schema
 module.exports = mongoose.model("Liquid", LiquidSchema);
+

@@ -1,0 +1,18 @@
+extends layout
+
+block content
+
+  h1 Spice: #{spice.name}
+
+  div(style='margin-left:20px;margin-top:20px')
+
+    h3
+    p #[strong Description:] #{spice.description}
+    p #[strong Price:] #{spice.price}
+    p #[strong Number In Stock:] #{spice.number_in_stock}
+
+  hr
+  p
+    a(href=spice.url+'/delete') Delete Spice
+  p
+    a(href=spice.url+'/update') Update Spice
