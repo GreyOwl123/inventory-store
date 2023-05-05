@@ -121,7 +121,7 @@ exports.solid_delete_get = (req, res, next) => {
   async.parallel(
     {
       solid(callback) {
-        Solid.findById(req.params.id).exec(callback);
+        Solid.find(req.params.id).exec(callback);
       },
     },
     (err, results) => {
@@ -134,7 +134,7 @@ exports.solid_delete_get = (req, res, next) => {
       }
       // Successful, so render.
       res.render("solid_delete", {
-        title: "Delete Solid",
+        title: "Delete Item",
         solid: results.solid,
       });
     }
@@ -147,7 +147,7 @@ exports.solid_delete_post = (req, res, next) => {
   async.parallel(
     {
       solid(callback) {
-        Solid.findById(req.body.solidid).exec(callback);
+        Solid.find(req.body.solidid).exec(callback);
       },
     },
     (err, results) => {

@@ -12,7 +12,7 @@ const LiquidSchema = new Schema({
 
 //Virtual for liquid's URL
 LiquidSchema.virtual("url").get(function () {
-  return `catalog/liquid/${this._id}`;
+return `/catalog/liquid/${this._id}`;
 });
 
 // Compile model from schema

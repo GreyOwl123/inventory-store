@@ -182,7 +182,7 @@ exports.fruit_delete_post = (req, res, next) => {
   async.parallel(
     {
       fruit(callback) {
-        Fruit.findById(req.body.fruitid).exec(callback);
+        Fruit.find(req.body.fruit).exec(callback);
       },
     },
     (err, results) => {
@@ -191,9 +191,9 @@ exports.fruit_delete_post = (req, res, next) => {
       }
       // Success
       if (results.fruit.length > 0) {
-        // Item exists. Render as the same way as in GET.
+        // Item exists. Render the same way as in GET.
         res.render("fruit_delete", {
-          title: "Delete Fruit",
+          title: "Delete Item",
           fruit: results.fruit,
         });
         return;

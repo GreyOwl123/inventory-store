@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 
-console.log('This script populates some test items to your database. Specified database as argument - e. node populatedb "mongodb+srv://cooluser:coolpassword@cluster0.ybaz7vs.mongodb.net/inventory_app?retryWrites=true&w=majority"');
+console.log('This script populates some test items to your database. Specified database as argument - e. node populatedb "mongodb+srv://cooluser:coolpassword@cluster0.ybaz7vs.mongodb.net/inventory_store?retryWrites=true&w=majority"');
 
 // Get arguments passed on command line
 const userArgs = process.argv.slice(2);
@@ -55,6 +55,7 @@ function liquidCreate(name, description, price, number_in_stock, cb) {
     price: price,
     number_in_stock: number_in_stock,
    }
+
   const liquid = new Liquid(liquiddetail);
 
   liquid.save(function (err) {
@@ -112,7 +113,7 @@ function spiceCreate(name, description, price, number_in_stock, cb) {
 
 
 function createFruits(cb) {
-    async.series([
+    async.parallel([
         function(callback) {
           fruitCreate('Apple', 'A dozen or 10kg only.', 1.00, '25', callback);
         },
