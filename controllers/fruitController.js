@@ -182,7 +182,7 @@ exports.fruit_delete_post = (req, res, next) => {
   async.parallel(
     {
       fruit(callback) {
-        Fruit.find(req.body.fruit).exec(callback);
+        Fruit.findById(req.body.fruitid).exec(callback);
       },
     },
     (err, results) => {

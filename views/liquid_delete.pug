@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 #{title}: #{liquid.name}
+
+  p Do you really want to delete this Item?
+
+    form(method='POST' action='')
+      div.form-group
+        input#liquidid.form-control(type='hidden',name='liquidid', required='true', value=liquid._id )
+
+      button.btn.btn-primary(type='submit') Delete Item

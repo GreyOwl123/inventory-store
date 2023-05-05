@@ -1,14 +1,13 @@
 extends layout
 
 block content
-  h1 #{title}:
+  h1 #{title}: #{fruit.name}
 
   p Do you really want to delete this Item?
 
     form(method='POST' action='')
       div.form-group
-        input#fruitname.form-control(type='hidden',name='fruitname', required='true', value=fruit._id )
+        input#fruitid.form-control(type='hidden',name='fruitid', required='true', value=fruit._id )
 
-      button.btn.btn-primary(type='submit') Delete Fruit
-
+      button.btn.btn-primary(type='submit') Delete Item
 
